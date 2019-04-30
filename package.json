@@ -1,0 +1,17 @@
+{
+  "name": "fattylee-indecision-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel public/src/app.js --out-file public/app.js --presets env,react --watch"
+  },
+  "dependencies": {
+    "babel-preset-env": "1.7.0",
+     "babel-preset-react": "6.24.1"
+  },
+  "keywords": ["react", "todo", "javascript"],
+  "author": "Fatai Balogun",
+  "license": "ISC"
+}
