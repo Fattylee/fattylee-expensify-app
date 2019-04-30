@@ -76,7 +76,55 @@ var templateThree = React.createElement(
     null,
     'Location: ',
     user.location
-  )
+  ),
+  true
 );
 
-ReactDOM.render(template, appRoot);
+var counter = 0;
+var addOne = function addOne() {
+  counter++;
+  renderCounterApp();
+  console.log('addOne');
+};
+var minusOne = function minusOne() {
+  counter--;
+  renderCounterApp();
+  console.log('minusOne');
+};
+var reset = function reset() {
+  counter = 0;
+  renderCounterApp();
+  console.log('reset');
+};
+
+var renderCounterApp = function renderCounterApp() {
+  var templateFour = React.createElement(
+    'div',
+    null,
+    React.createElement(
+      'h1',
+      null,
+      'Count: ',
+      counter
+    ),
+    React.createElement(
+      'button',
+      { onClick: addOne },
+      '+1'
+    ),
+    React.createElement(
+      'button',
+      { onClick: minusOne },
+      '-1'
+    ),
+    React.createElement(
+      'button',
+      { onClick: reset },
+      'reset'
+    )
+  );
+
+  ReactDOM.render(templateFour, appRoot);
+};
+
+renderCounterApp();
