@@ -1,5 +1,17 @@
 const appRoot = document.querySelector('#app-root');
-const template = <div><h1>I love reacting, yes we do$$!</h1><p>some info</p></div>;
+const app = {
+  title: 'Indecision App',
+  subTitle: 'Put your life in the hands of a computer',
+  options: ['option one', 'option two'],
+}; 
+
+const template = (
+  <div>
+    {(app && app.title) && <h1>{app.title}</h1>}
+    {(app.subTitle) && <p>{app.subTitle}</p>}
+    {(app.options && app.options.length > 0) ? <p>Here are your options</p> : <p>No options</p>}
+  </div>
+  );
 
 const templateTwo = (
   <div>
@@ -23,4 +35,4 @@ const templateThree = (
   </div>
 );
 
-ReactDOM.render(templateThree, appRoot);
+ReactDOM.render(template, appRoot);

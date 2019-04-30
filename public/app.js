@@ -1,18 +1,33 @@
 'use strict';
 
 var appRoot = document.querySelector('#app-root');
+var app = {
+  title: 'Indecision App',
+  subTitle: 'Put your life in the hands of a computer',
+  options: ['option one', 'option two']
+};
+
 var template = React.createElement(
   'div',
   null,
-  React.createElement(
+  app && app.title && React.createElement(
     'h1',
     null,
-    'I love reacting, yes we do$$!'
+    app.title
   ),
-  React.createElement(
+  app.subTitle && React.createElement(
     'p',
     null,
-    'some info'
+    app.subTitle
+  ),
+  app.options && app.options.length > 0 ? React.createElement(
+    'p',
+    null,
+    'Here are your options'
+  ) : React.createElement(
+    'p',
+    null,
+    'No options'
   )
 );
 
@@ -64,4 +79,4 @@ var templateThree = React.createElement(
   )
 );
 
-ReactDOM.render(templateThree, appRoot);
+ReactDOM.render(template, appRoot);
