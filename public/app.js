@@ -1,130 +1,90 @@
 'use strict';
 
 var appRoot = document.querySelector('#app-root');
+
 var app = {
   title: 'Indecision App',
   subTitle: 'Put your life in the hands of a computer',
-  options: ['option one', 'option two']
+  options: []
 };
 
-var template = React.createElement(
-  'div',
-  null,
-  app && app.title && React.createElement(
-    'h1',
-    null,
-    app.title
-  ),
-  app.subTitle && React.createElement(
-    'p',
-    null,
-    app.subTitle
-  ),
-  app.options && app.options.length > 0 ? React.createElement(
-    'p',
-    null,
-    'Here are your options'
-  ) : React.createElement(
-    'p',
-    null,
-    'No options'
-  )
-);
-
-var templateTwo = React.createElement(
-  'div',
-  null,
-  React.createElement(
-    'h1',
-    null,
-    'Fattylee'
-  ),
-  React.createElement(
-    'p',
-    null,
-    'Age: 31'
-  ),
-  React.createElement(
-    'p',
-    null,
-    'Location: 83, Ishola Daniel Str'
-  )
-);
-
-var user = {
-  name: 'Abu Adnaan',
-  age: 31,
-  location: 'Lagos'
+var onFormSubmit = function onFormSubmit(e) {
+  e.preventDefault();
+  var option = e.target.elements.option.value.trim();
+  if (option) {
+    app.options.push(option);
+    e.target.elements.option.value = '';
+    render();
+  }
 };
 
-var templateThree = React.createElement(
-  'div',
-  null,
-  React.createElement(
-    'h1',
-    null,
-    user.name
-  ),
-  React.createElement(
-    'p',
-    null,
-    'Age: ',
-    JSON.stringify(user, null, 2)
-  ),
-  React.createElement(
-    'p',
-    null,
-    'Location: ',
-    user.location
-  ),
-  true
-);
-
-var counter = 0;
-var addOne = function addOne() {
-  counter++;
-  renderCounterApp();
-  console.log('addOne');
-};
-var minusOne = function minusOne() {
-  counter--;
-  renderCounterApp();
-  console.log('minusOne');
-};
-var reset = function reset() {
-  counter = 0;
-  renderCounterApp();
-  console.log('reset');
+var onRemoveAll = function onRemoveAll() {
+  app.options = [];
+  render();
 };
 
-var renderCounterApp = function renderCounterApp() {
-  var templateFour = React.createElement(
+var makeDecision = function makeDecision() {
+  var randomNum = Math.floor(Math.random() * app.options.length);
+  alert(app.options[randomNum]);
+};
+
+var render = function render() {
+  var template = React.createElement(
     'div',
     null,
-    React.createElement(
+    app && app.title && React.createElement(
       'h1',
       null,
-      'Count: ',
-      counter
+      app.title
+    ),
+    app.subTitle && React.createElement(
+      'p',
+      null,
+      app.subTitle
+    ),
+    app.options && app.options.length > 0 ? React.createElement(
+      'p',
+      null,
+      'Here are your options'
+    ) : React.createElement(
+      'p',
+      null,
+      'No options'
     ),
     React.createElement(
       'button',
-      { onClick: addOne },
-      '+1'
+      { disabled: !app.options.length, onClick: makeDecision },
+      'What should I do?'
     ),
     React.createElement(
       'button',
-      { onClick: minusOne },
-      '-1'
+      { onClick: onRemoveAll },
+      'Remove all'
     ),
     React.createElement(
-      'button',
-      { onClick: reset },
-      'reset'
+      'ol',
+      null,
+      app.options.map(function (option, i) {
+        return React.createElement(
+          'li',
+          { key: i },
+          option
+        );
+      })
+    ),
+    React.createElement(
+      'form',
+      { onSubmit: onFormSubmit },
+      React.createElement('input', { text: 'text', name: 'option' }),
+      React.createElement(
+        'button',
+        null,
+        'Add options'
+      )
     )
   );
 
-  ReactDOM.render(templateFour, appRoot);
+  ReactDOM.render(template, appRoot);
 };
 
-renderCounterApp();
+render();
