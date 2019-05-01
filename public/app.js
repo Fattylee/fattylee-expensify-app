@@ -104,12 +104,15 @@ var render = function render() {
     _createClass(IndecisionApp, [{
       key: 'render',
       value: function render() {
+        var title = 'Indecision App';
+        var subTitle = 'Put your life in the hands of a computer';
+        var options = ['one thing', 'two thing', 'four thing'];
         return React.createElement(
           'div',
           null,
-          React.createElement(Header, null),
+          React.createElement(Header, { title: title, subTitle: subTitle }),
           React.createElement(Action, null),
-          React.createElement(Options, null),
+          React.createElement(Options, { options: options }),
           React.createElement(AddOption, null)
         );
       }
@@ -135,15 +138,15 @@ var render = function render() {
         return React.createElement(
           'div',
           null,
-          app && app.title && React.createElement(
+          React.createElement(
             'h1',
             null,
-            app.title
+            this.props.title
           ),
-          app.subTitle && React.createElement(
+          React.createElement(
             'p',
             null,
-            app.subTitle
+            this.props.subTitle
           )
         );
       }
@@ -198,8 +201,9 @@ var render = function render() {
         return React.createElement(
           'div',
           null,
-          'Options Component Here',
-          React.createElement(Option, null)
+          this.props.options.map(function (option) {
+            return React.createElement(Option, { key: option, optionText: option });
+          })
         );
       }
     }]);
@@ -224,7 +228,7 @@ var render = function render() {
         return React.createElement(
           'div',
           null,
-          'Option Component Here'
+          this.props.optionText
         );
       }
     }]);
