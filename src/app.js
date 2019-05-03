@@ -61,7 +61,9 @@ class IndecisionApp extends React.Component {
   }
   componentDidUpdate(prevProps, prevState) {
     const jsonOptions = JSON.stringify(this.state.options);
-    window.localStorage.setItem('options', jsonOptions);
+    if(prevState.options.length !== this.state.options.length) {
+      window.localStorage.setItem('options', jsonOptions);
+    }
   }
   render() {
     const subTitle = 'Put your life in the hands of a computer';
