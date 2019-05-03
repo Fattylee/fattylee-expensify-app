@@ -7,4 +7,12 @@ module.exports = {
     path: outputPath,
     filename: 'bundle.js',
   },
+  mode: 'development',
+  module: {
+    rules: [{
+    test: /\.(js|jsx)$/, 
+    use: 'babel-loader',
+    exclude: /node_modules/,
+    }]
+  }
 };
