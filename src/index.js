@@ -1,0 +1,1 @@
+console.log('babel webpack is running!', "assalamu 'alaikum warahmatullah. ");
