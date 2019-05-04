@@ -14,4 +14,3 @@ const AddOption = ({ error, handleSubmit, options }) => {
 };
 
 export default AddOption;
-
