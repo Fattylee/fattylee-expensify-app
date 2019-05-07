@@ -20,7 +20,7 @@ class IndecisionApp extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     
-    console.log(mama);
+    //console.log(mama);
     const text = e.target.elements.option.value.trim();
     
     if(!text) {
@@ -105,4 +105,3 @@ IndecisionApp.defaultProps = {
 };
 
 export default IndecisionApp;
-

@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -w",
+    "build": "webpack",
     "build-babel": "babel src/app.js --out-file public/app.js --presets env,react --watch",
-    "serve": "live-server public"
+    "serve": "live-server public",
+    "dev": "webpack-dev-server"
   },
   "dependencies": {
     "babel-preset-env": "1.7.0",
@@ -18,7 +19,12 @@
     "react-dom": "16.8.6",
     "react": "16.8.6",
     "babel-loader": "7.1.5",
-    "babel-core": "6.26.3"
+    "babel-core": "6.26.3",
+    "webpack-dev-server": "3.3.1",
+    "webpack-cli": "3.3.2",
+    "i": "0.3.6",
+    "@babel/plugin-proposal-class-properties": "7.4.4",
+    "@babel/core": "7.4.4"
   },
   "keywords": ["react", "todo", "javascript"],
   "author": "Fatai Balogun",

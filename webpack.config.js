@@ -16,4 +16,9 @@ module.exports = {
     }]
   },
   devtool: 'cheap-module-eval-source-map',
+  devServer: { 
+  contentBase: outputPath,
+  compress: true,
+  port: 9000,
+  },
 };
