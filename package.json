@@ -9,7 +9,7 @@
     "build-babel": "babel src/app.js --out-file public/app.js --presets env,react --watch",
     "serve": "live-server public",
     "dev": "webpack-dev-server",
-    "webpack": "webpack -w"
+    "webpack": "webpack"
   },
   "dependencies": {
     "live-server": "1.2.1",
@@ -23,7 +23,11 @@
     "@babel/core": "7.4.4",
     "@babel/preset-react": "7.0.0",
     "@babel/preset-env": "7.4.4",
-    "@babel/plugin-proposal-class-properties": "7.4.4"
+    "@babel/plugin-proposal-class-properties": "7.4.4",
+    "scss-loader": "0.0.1",
+    "css-loader": "2.1.1",
+    "style-loader": "0.23.1",
+    "react-modal": "3.8.1"
   },
   "keywords": ["react", "todo", "javascript"],
   "author": "Fatai Balogun",

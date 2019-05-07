@@ -6,21 +6,13 @@ import Options from './Options.jsx';
 import AddOption from './AddOption';
 
 class IndecisionApp extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      options: props.options,
+  state = {
+      options: this.props.options,
       error: undefined,
     };
-    this.handleRemoveAll = this.handleRemoveAll.bind(this);
-    this.makeDecision = this.makeDecision.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDeleteOption = this.handleDeleteOption.bind(this);
-  }
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     
-    //console.log(mama);
     const text = e.target.elements.option.value.trim();
     
     if(!text) {
@@ -40,16 +32,16 @@ class IndecisionApp extends React.Component {
     e.target.elements.option.value = '';
   }
   
-  handleRemoveAll(e) {
+  handleRemoveAll = (e) => {
     this.setState(prevState => ({ options: [], error: undefined }));
   }
-  makeDecision() {
+  makeDecision = () => {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
     if(this.state.options.length) {
       alert(this.state.options[randomNum]);
     }
   }
-  handleDeleteOption(optionToRemove) {
+  handleDeleteOption = (optionToRemove) => {
     this.setState(prevState => ({
       options: prevState.options.filter(option => option !== optionToRemove),
     }))
@@ -105,3 +97,4 @@ IndecisionApp.defaultProps = {
 };
 
 export default IndecisionApp;
+
