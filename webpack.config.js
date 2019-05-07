@@ -9,16 +9,18 @@ module.exports = {
   },
   mode: 'development',
   module: {
-    rules: [{
-    test: /\.(js|jsx)$/, 
-    use: 'babel-loader',
-    exclude: /node_modules/,
-    }]
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader',
+        exclude: /node_modules/,
+      }
+    ]
   },
   devtool: 'cheap-module-eval-source-map',
-  devServer: { 
-  contentBase: outputPath,
-  compress: true,
-  port: 9000,
+  devServer: {
+    contentBase: outputPath,
+    compress: true,
+    port: 9000,
   },
 };
