@@ -1,14 +1,18 @@
 import React from 'react';
+import ReactModal from 'react-modal';
 
 import Header from './Header';
 import Action from './Action';
 import Options from './Options.jsx';
 import AddOption from './AddOption';
+import OptionModal from './OptionModal';
+
 
 class IndecisionApp extends React.Component {
   state = {
       options: this.props.options,
       error: undefined,
+      selectedOption: undefined,
     };
   handleSubmit = (e) => {
     e.preventDefault();
@@ -30,22 +34,26 @@ class IndecisionApp extends React.Component {
     }));
    
     e.target.elements.option.value = '';
-  }
+  };
   
   handleRemoveAll = (e) => {
     this.setState(prevState => ({ options: [], error: undefined }));
-  }
+  };
   makeDecision = () => {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
     if(this.state.options.length) {
-      alert(this.state.options[randomNum]);
+      const option = this.state.options[randomNum];
+      this.setState(() => ({ selectedOption: option}))
     }
-  }
+  };
   handleDeleteOption = (optionToRemove) => {
     this.setState(prevState => ({
       options: prevState.options.filter(option => option !== optionToRemove),
     }))
-  }
+  };
+  handleSelectedOption = () => {
+    this.setState(() => ({selectedOption: undefined}))
+  };
   componentDidMount() {
     try {
       const options = JSON.parse(localStorage.getItem('options'));
@@ -87,6 +95,10 @@ class IndecisionApp extends React.Component {
           error = {this.state.error}
           options = {this.state.options}
         />
+        <OptionModal selectedOption={this.state.selectedOption}
+        handleSelectedOption={this.handleSelectedOption}
+        
+         />
       </div>
     );
   }
