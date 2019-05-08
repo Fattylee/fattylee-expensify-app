@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 
 const OptionModal = (props) => (
   <Modal
+  ariaHideApp={false}
   onRequestClose={props.handleSelectedOption}
   isOpen={!!props.selectedOption}
   contentLabel="Selected option"

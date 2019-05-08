@@ -1,0 +1,72 @@
+@import './header';
+@import './variables';
+
+@bg: #53EED6;
+@fs: 20px;
+* {
+  color: @btnColor;
+  h1 {
+    color: pink;
+    font-size: 3 * @fs;
+  }
+}
+
+ol {
+  background: @bg;
+  li {
+    background: darken(@bg, 40%);
+    font-size: @fs;
+  }
+  li {
+    .fat-btn;
+    border-bottom: 5px solid @btnColor;
+    background: lighten(@bg, 20%);
+    &:hover {
+      color: darken(@bg, 20%);
+      background: yellow;
+      transition: all 0.2s ease-in-out;
+      .bordered(50%);
+    }
+  }
+  button {
+     .bordered(40px);
+     .button();
+  }
+} // end ol 
+
+#colors() { 
+  primary: blue; 
+  secondary: green; 
+  bg: @btnColor;
+  } 
+
+.button { 
+color: #colors[primary]; 
+border: 1px solid #colors[secondary]; 
+background: #colors[bg];
+}
+
+input {
+  color: gold;
+  padding: @fs;
+}
+.fat-btn {
+  padding: 2em;
+  color: red;
+}
+
+.bordered (@radius) {
+  border-radius: @radius;
+}
+
+#bundle() {
+  .button {
+    display: block;
+    border: 1px solid black;
+    background-color: grey;
+    &:hover {
+      background-color: white;
+    }
+  }
+  
+}

@@ -1,4 +1,6 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const outputPath = path.join(__dirname, 'public');
 
 module.exports = {
@@ -11,9 +13,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         use: 'babel-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'less-loader'
+        ],
+        exclude: /node_modules/
       }
     ]
   },
@@ -23,4 +34,7 @@ module.exports = {
     compress: true,
     port: 9000,
   },
+  plugins: [ 
+    new MiniCssExtractPlugin()
+  ] 
 };
