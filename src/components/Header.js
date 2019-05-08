@@ -2,9 +2,9 @@ import React from 'react';
 
 const Header = ({ title, subTitle }) => {
     return (
-      <div>
-        <h1>{title}</h1>
-        {subTitle && <p>{subTitle}</p>}
+      <div className='header'>
+        <h1 className='header__title'>{title}</h1>
+        {subTitle && <p className='header__subtitle'>{subTitle}</p>}
       </div>
     );
 };
@@ -14,4 +14,3 @@ Header.defaultProps = {
 };
 
 export default Header;
-
