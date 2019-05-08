@@ -30,7 +30,8 @@
     "react-modal": "3.8.1",
     "less": "3.9.0",
     "less-loader": "5.0.0",
-    "mini-css-extract-plugin": "0.6.0"
+    "mini-css-extract-plugin": "0.6.0",
+    "normalize.css": "8.0.1"
   },
   "keywords": ["react", "todo", "javascript"],
   "author": "Fatai Balogun",

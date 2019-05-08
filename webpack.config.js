@@ -18,13 +18,13 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.less$/,
+        test: /\.(le|c)ss$/,
         use: [
           'style-loader',
           'css-loader',
           'less-loader'
         ],
-        exclude: /node_modules/
+        //exclude: /node_modules/
       }
     ]
   },
