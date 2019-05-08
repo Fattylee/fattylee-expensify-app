@@ -80,21 +80,23 @@ class IndecisionApp extends React.Component {
         <Header
           subTitle = {subTitle}
         />
-        <Action 
-        optionLength = 
-        {this.state.options.length}
-         makeDecision = {this.makeDecision} 
-        />
-        <Options 
-          options = {this.state.options} 
-          handleRemoveAll = {this.handleRemoveAll}
-          handleDeleteOption = {this.handleDeleteOption} 
-        />
-        <AddOption 
-          handleSubmit = {this.handleSubmit}
-          error = {this.state.error}
-          options = {this.state.options}
-        />
+        <div className='container'>
+          <Action 
+          optionLength = 
+          {this.state.options.length}
+           makeDecision = {this.makeDecision} 
+          />
+          <Options 
+            options = {this.state.options} 
+            handleRemoveAll = {this.handleRemoveAll}
+            handleDeleteOption = {this.handleDeleteOption} 
+          />
+          <AddOption 
+            handleSubmit = {this.handleSubmit}
+            error = {this.state.error}
+            options = {this.state.options}
+          />
+        </div>
         <OptionModal selectedOption={this.state.selectedOption}
         handleSelectedOption={this.handleSelectedOption}
         
@@ -109,4 +111,3 @@ IndecisionApp.defaultProps = {
 };
 
 export default IndecisionApp;
-
