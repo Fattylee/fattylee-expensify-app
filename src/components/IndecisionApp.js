@@ -20,12 +20,12 @@ class IndecisionApp extends React.Component {
     const text = e.target.elements.option.value.trim();
     
     if(!text) {
-      this.setState(prevState => ({ error: 'can\'t add an empty option' }));
+      this.setState(prevState => ({ error: 'Enter a valid value to add item' }));
       e.target.elements.option.value = '';
       return;
     }
     else if(this.state.options.find(option => option.toLowerCase() === text.toLowerCase() )) {
-      return this.setState(prevState => ({ error: `option '${text}' already exist` }));
+      return this.setState(prevState => ({ error: `Option '${text}' already exist` }));
     }
     
     this.setState(prevState => ({
@@ -86,16 +86,18 @@ class IndecisionApp extends React.Component {
           {this.state.options.length}
            makeDecision = {this.makeDecision} 
           />
-          <Options 
-            options = {this.state.options} 
-            handleRemoveAll = {this.handleRemoveAll}
-            handleDeleteOption = {this.handleDeleteOption} 
-          />
-          <AddOption 
-            handleSubmit = {this.handleSubmit}
-            error = {this.state.error}
-            options = {this.state.options}
-          />
+          <div className='widget'>
+            <Options 
+              options = {this.state.options} 
+              handleRemoveAll = {this.handleRemoveAll}
+              handleDeleteOption = {this.handleDeleteOption} 
+            />
+            <AddOption 
+              handleSubmit = {this.handleSubmit}
+              error = {this.state.error}
+              options = {this.state.options}
+            />
+          </div>
         </div>
         <OptionModal selectedOption={this.state.selectedOption}
         handleSelectedOption={this.handleSelectedOption}

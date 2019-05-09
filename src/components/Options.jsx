@@ -4,16 +4,20 @@ import Option from './Option';
 const Options = ({ options, handleRemoveAll, handleDeleteOption }) => {
     return (
       <div>
-        <button 
-        className='button--link' 
-        disabled={options.length === 0} 
-        onClick={handleRemoveAll}
-        >
-        Remove all
-        </button>
-        <ol>{options.map(option => (
+        <div className='widget-header'>
+          <h3>Your options</h3>
+          <button 
+          className='button--link' 
+          disabled={options.length === 0} 
+          onClick={handleRemoveAll}
+          >
+          Remove all
+          </button>
+        </div>
+        <ol>{options.map((option, index) => (
         <Option 
-        key={option} 
+        key={option}
+        index={++index} 
         optionText={option}
         handleDeleteOption={handleDeleteOption} 
         />
