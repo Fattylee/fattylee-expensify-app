@@ -7,3 +7,10 @@ body {
   font-family: Helvetica, arial, sans-serif;
   font-size: @m-size;
 }
+
+button {
+  cursor: pointer;
+  &:disabled {
+    cursor: default;
+  }
+}

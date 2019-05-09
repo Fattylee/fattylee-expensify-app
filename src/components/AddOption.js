@@ -7,7 +7,7 @@ const AddOption = ({ error, handleSubmit, options }) => {
       {!options.length && <p>Add an option to get started</p>}
       <form onSubmit={handleSubmit}>
         <input text='text' name='option' />
-        <button>Add options</button>
+        <button className='button'>Add options</button>
       </form>
     </div>
   );  
