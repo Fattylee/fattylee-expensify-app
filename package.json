@@ -31,7 +31,11 @@
     "less": "3.9.0",
     "less-loader": "5.0.0",
     "mini-css-extract-plugin": "0.6.0",
-    "normalize.css": "8.0.1"
+    "normalize.css": "8.0.1",
+    "material-icons": "0.3.1"
+  },
+  "devDependencies": {
+    
   },
   "keywords": ["react", "todo", "javascript"],
   "author": "Fatai Balogun",

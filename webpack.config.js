@@ -24,7 +24,7 @@ module.exports = {
           'css-loader',
           'less-loader'
         ],
-        //exclude: /node_modules/
+        exclude: /node_modules/
       }
     ]
   },
