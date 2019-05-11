@@ -4,7 +4,5 @@ import './styles/base/normalize.css';
 import './styles/style.less';
 
 
-import IndecisionApp from './components/IndecisionApp';
 
-
-ReactDOM.render(<IndecisionApp />, document.querySelector('#app-root'));
+ReactDOM.render(<p>This is a paragraph for the boiler-plate react code</p>, document.querySelector('#app-root'));
