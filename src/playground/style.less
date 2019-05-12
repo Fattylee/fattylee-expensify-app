@@ -1,0 +1,28 @@
+@m-size: 16px;
+@purple: purple;
+
+
+.person {
+  display: flex;
+  justify-content: space-between;
+  padding: @m-size;
+  background: @purple;
+  color: white;
+  & > div {
+    background: darken(@purple, 30%);
+    padding: 0 @m-size;
+  }
+  button {
+    padding: 0 @m-size;
+    color: white;
+    background: darken(@purple, 70%);
+    border: none;
+    outline: none;
+    border-bottom: 5px solid white;
+    &:hover {
+      color: darken(@purple, 70%);
+      background: white;
+      border-bottom: 5px solid darken(@purple, 70%);
+    }
+  }
+}

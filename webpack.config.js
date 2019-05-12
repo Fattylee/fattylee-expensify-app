@@ -4,7 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const outputPath = path.join(__dirname, 'public');
 
 module.exports = {
-  entry: './src/app.js',
+  //entry: './src/app.js',
+  entry: './src/playground/context.js',
   output: {
     path: outputPath,
     filename: 'bundle.js',
@@ -24,7 +25,6 @@ module.exports = {
           'css-loader',
           'less-loader'
         ],
-        exclude: /node_modules/
       }
     ]
   },
@@ -33,8 +33,9 @@ module.exports = {
     contentBase: outputPath,
     compress: true,
     port: 9000,
+    historyApiFallback: true,
   },
   plugins: [ 
     new MiniCssExtractPlugin()
-  ] 
+  ]
 };
